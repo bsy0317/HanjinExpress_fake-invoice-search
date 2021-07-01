@@ -46,7 +46,7 @@ namespace valid_invoice_checker
                     {
                         Console.WriteLine(mainCode + " CHECK " + check);
                         smp.WaitOne();
-                        File.AppendAllText(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\" + DateTime.Now.ToString("HH-mm-dd") + " 결과.txt", mainCode + "\n");
+                        File.AppendAllText(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\" + "추출결과.txt", mainCode + "\n");
                         smp.Release(1);
                     }
                 }

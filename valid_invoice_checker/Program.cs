@@ -12,7 +12,7 @@ namespace valid_invoice_checker
         static void Main(string[] args)
         {
             smp = new Semaphore(1,1);
-            smp2 = new Semaphore(Environment.ProcessorCount*2+1, Environment.ProcessorCount*2+1); //스레드 갯수
+            smp2 = new Semaphore(Environment.ProcessorCount, Environment.ProcessorCount); //스레드 갯수
             Console.WriteLine("기준이 될 송장번호를 입력해주세요.");
             Console.WriteLine("예) 1234 5678 **** 와 같이 송장번호 앞 8자리 입니다.");
             Console.Write("8자리 기준번호 입력 > ");

@@ -41,7 +41,7 @@ namespace valid_invoice_checker
                     wt.SetRequestHeader("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0");
                     wt.Send();
                     bool check = false;
-                    if (wt.ResponseText.IndexOf("기본정보") != -1) check = true;
+                    if (wt.ResponseText.IndexOf("기본정보") != -1 && wt.ResponseText.IndexOf("운송장이 등록되지 않았거나") != -1) check = true;
                     if (check)
                     {
                         Console.WriteLine(mainCode + " CHECK " + check);
@@ -49,6 +49,7 @@ namespace valid_invoice_checker
                         File.AppendAllText(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\" + "추출결과.txt", mainCode + "\n");
                         smp.Release(1);
                     }
+                    Thread.Sleep(500);
                 }
                 smp2.Release();
             });
